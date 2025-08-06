@@ -1,16 +1,25 @@
-/*! @mainpage Blinking switch
+/*! @mainpage Template
  *
- * \section genDesc General Description
+ * @section genDesc General Description
  *
- * This example makes LED_1 and LED_2 blink if SWITCH_1 or SWITCH_2 are pressed.
+ * This section describes how the program works.
+ *
+ * <a href="https://drive.google.com/...">Operation Example</a>
+ *
+ * @section hardConn Hardware Connection
+ *
+ * |    Peripheral  |   ESP32   	|
+ * |:--------------:|:--------------|
+ * | 	PIN_X	 	| 	GPIO_X		|
+ *
  *
  * @section changelog Changelog
  *
  * |   Date	    | Description                                    |
  * |:----------:|:-----------------------------------------------|
- * | 12/09/2023 | Document creation		                         |
+ * | 06/08/2025 | Document creation		                         |
  *
- * @author Albano Peñalva (albano.penalva@uner.edu.ar)
+ * @author Josefina Nicola (josefina.nicola@ingenieria.uner.edu.ar)
  *
  */
 
@@ -23,7 +32,7 @@
 #include "led.h"
 #include "switch.h"
 /*==================[macros and definitions]=================================*/
-#define CONFIG_BLINK_PERIOD 500
+#define CONFIG_BLINK_PERIOD 900
 /*==================[internal data definition]===============================*/
 
 /*==================[internal functions declaration]=========================*/
@@ -42,8 +51,10 @@ void app_main(void){
     		case SWITCH_2:
     			LedToggle(LED_2);
     		break;
+			case SWITCH_1|SWITCH_2:
+				LedToggle(LED_3);
     	}
-	    LedToggle(LED_3);
 		vTaskDelay(CONFIG_BLINK_PERIOD / portTICK_PERIOD_MS);
 	}
 }
+/*==================[end of file]============================================*/
