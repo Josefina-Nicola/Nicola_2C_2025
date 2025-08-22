@@ -50,15 +50,12 @@ void ProcesarLeds(struct leds *my_leds){
 	switch(my_leds->mode){
 		case 0:
 			LedOn(my_leds->n_led);
-			printf("Led On");
 		break;
 		case 1:
 			LedOff(my_leds->n_led);
-			printf("Led Off");
 		break;
 		case 2:
 			LedToggle(my_leds->n_led);
-			printf("Led Toggle");
 		break;
 	}
 }
@@ -72,17 +69,14 @@ void app_main(void){
 	my_leds.n_led = LED_3;
 	my_leds.periodo = 500;
 	my_leds.n_ciclos = 10;
-	int retardo = 5;
+	
+	int i=0;
 
 	struct leds *my_leds_ptr = &my_leds;
 
-	while(1){
-		for(int i = 0; i < (my_leds_ptr->n_ciclos); i++){
-			ProcesarLeds(my_leds_ptr);
-			for(int j = 0; j < retardo; j++){
-				vTaskDelay(my_leds_ptr->periodo / portTICK_PERIOD_MS);
-			}
-		}
+	while(i<(my_leds_ptr->n_ciclos)){
+		ProcesarLeds(my_leds_ptr);
+		vTaskDelay(my_leds_ptr->periodo / portTICK_PERIOD_MS);
 	}
 }
 /*==================[end of file]============================================*/
