@@ -77,6 +77,7 @@ void app_main(void){
 	while(i<(my_leds_ptr->n_ciclos)){
 		ProcesarLeds(my_leds_ptr);
 		vTaskDelay(my_leds_ptr->periodo / portTICK_PERIOD_MS);
+		i++;
 	}
 }
 /*==================[end of file]============================================*/
