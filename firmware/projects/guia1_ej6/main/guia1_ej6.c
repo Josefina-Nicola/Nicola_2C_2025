@@ -31,7 +31,11 @@
 #include "freertos/task.h"
 
 /*==================[macros and definitions]=================================*/
-#define CONFIG_BLINK_PERIOD 500 
+
+/** @def CONFIG_BLINK_PERIOD
+ * @brief Valor del período entre acciones del led
+ */
+ #define CONFIG_BLINK_PERIOD 500 
 
 /*==================[internal data definition]===============================*/
 typedef struct
@@ -41,7 +45,14 @@ typedef struct
 } gpioConf_t;
 
 /*==================[internal functions declaration]=========================*/
-int8_t convertToBcdArray (uint32_t data, uint8_t digits, uint8_t * bcd_number){
+/** @fn int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number)
+ * @brief Convierte un dato de en BCD según la cantidad de dígitos indicados
+ * @param data Decimal de 32 bits
+ * @param digits Entero que indica la cantidad de dígitos
+ * @param bcd_number Arreglo a modificar para almacenar el bcd
+ * @return
+ */
+int8_t convertToBcdArray(uint32_t data, uint8_t digits, uint8_t *bcd_number){
 	
 	// Error: puntero inválido
 	if(bcd_number == NULL){
@@ -75,6 +86,12 @@ int8_t convertToBcdArray (uint32_t data, uint8_t digits, uint8_t * bcd_number){
 	return 0;
 }
 
+/** @fn void ManipularEstadoPinCodificacion(uint8_t bcd_number, gpioConf_t *pines)
+ * @brief Manipula el estado de los pines indicados
+ * @param bcd_number Arreglo que almacena el dato en BCD
+ * @param pines De tipo gpioConf_t que almacena los datos de los pines
+ * @return
+ */
 void ManipularEstadoPinCodificacion(uint8_t bcd_number, gpioConf_t *pines){
 	
 	for(uint8_t i = 0; i < 4; i++){
@@ -91,6 +108,15 @@ void ManipularEstadoPinCodificacion(uint8_t bcd_number, gpioConf_t *pines){
 	}
 };
 
+/** @fn ManipularDisplayLCD(uint32_t data, uint8_t digits, gpioConf_t *pines, gpioConf_t *pines_digitos, uint8_t *bcd_number)
+ * @brief Manipula un display LCD
+ * @param data Decimal de 32 bits
+ * @param digits Entero que indica la cantidad de dígitos
+ * @param pines De tipo gpioConf_t que almacena los datos de los pines
+ * @param pines_digitos Variable que almacena los datos de los pines que controlan los dígitos
+ * @param bcd_number Arreglo que almacena el dato en BCD
+ * @return
+ */
 void ManipularDisplayLCD(uint32_t data, uint8_t digits, gpioConf_t *pines, gpioConf_t *pines_digitos, uint8_t *bcd_number){
 	
 	for(uint8_t i = 0; i<4;i++){
@@ -99,8 +125,7 @@ void ManipularDisplayLCD(uint32_t data, uint8_t digits, gpioConf_t *pines, gpioC
 
 	ConvertToBcdArray(data, digits, bcd_number);
 
-	for(uint8_t i = 0; i<3;i++)
-	{
+	for(uint8_t i = 0; i<3;i++){
 		GPIOOff(pines_digitos[i].pin);
 		ManipularEstadoPinCodificacion(bcd_number[i], pines);
 		GPIOOn(pines_digitos[i].pin);
