@@ -139,7 +139,7 @@ void app_main(void){
 	gpioConf_t pin_codificacion[4];
 	gpioConf_t pin_digito[3];
 
-	uint32_t data = 9436; 			// Dato a convetir
+	uint32_t data = 857; 			// Dato a convetir
 	uint8_t digits = 3;		 		// Cantidad de bits a agrupar
 	uint8_t bcd_number[digits]; 	// Almacenamiento de los numeros en BCD 
 
@@ -158,9 +158,9 @@ void app_main(void){
 
 	// Configuración de los pines para controlar cada dígito
 	// Pin
-	pin_digito[0].pin = GPIO_19;
+	pin_digito[0].pin = GPIO_9;
 	pin_digito[1].pin = GPIO_18;
-	pin_digito[2].pin = GPIO_9;
+	pin_digito[2].pin = GPIO_19;
 	
 	// Dir
 	pin_digito[0].dir = GPIO_OUTPUT;
