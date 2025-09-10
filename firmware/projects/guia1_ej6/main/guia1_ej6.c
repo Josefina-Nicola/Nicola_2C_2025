@@ -123,7 +123,7 @@ void ManipularDisplayLCD(uint32_t data, uint8_t digits, gpioConf_t *pines, gpioC
 		GPIOInit(pines_digitos[i].pin, pines_digitos[i].dir); // Inicialización de los pines que controlan los dígitos
 	}
 
-	ConvertToBcdArray(data, digits, bcd_number);
+	convertToBcdArray(data, digits, bcd_number);
 
 	for(uint8_t i = 0; i<3;i++){
 		GPIOOff(pines_digitos[i].pin);
@@ -139,7 +139,7 @@ void app_main(void){
 	gpioConf_t pin_codificacion[4];
 	gpioConf_t pin_digito[3];
 
-	uint32_t data = 857; 			// Dato a convetir
+	uint32_t data = 9436; 			// Dato a convetir
 	uint8_t digits = 3;		 		// Cantidad de bits a agrupar
 	uint8_t bcd_number[digits]; 	// Almacenamiento de los numeros en BCD 
 
