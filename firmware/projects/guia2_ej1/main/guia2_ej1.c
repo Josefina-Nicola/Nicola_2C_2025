@@ -35,12 +35,16 @@
 #include "lcditse0803.h"
 #include "switch.h"
 /*==================[macros and definitions]=================================*/
-#define TECLA_PERIODO 200
+#define TECLA_PERIODO 100
 #define MEDICION_PERIODO 1000
 /*==================[internal data definition]===============================*/
 uint16_t distancia;
 bool control_on = false;
 bool control_hold = false;
+
+// TaskHandle_t leer_teclas_task_handle = NULL;
+// TaskHandle_t medir_task_handle = NULL;
+// TaskHandle_t mostrar_task_handle = NULL;
 /*==================[internal functions declaration]=========================*/
 
 void LeerTeclas(void *pvParameter){
@@ -50,14 +54,15 @@ void LeerTeclas(void *pvParameter){
 
 		switch(teclas){
             case SWITCH_1:
-                control_on = !control_on;
+                // LedOn(LED_1);
+				control_on = !control_on;
             break;
 
             case SWITCH_2:
-                control_hold = !control_hold;
+                // LedOff(LED_1);
+				control_hold = !control_hold;
             break;
 		}
-
 		vTaskDelay(TECLA_PERIODO / portTICK_PERIOD_MS);
 	}
 }
@@ -77,7 +82,7 @@ void MedirDistancia(void *pvParameter){
 				LedOff(LED_3);
 			}
 
-			else if(10 <= distancia && distancia < 20){
+			else if((10 <= distancia) && distancia < 20){
 				printf("Distancia mayor a 10 cm y menor a 20 cm\n");
 				printf("LED_1 ON\n");
 				LedOn(LED_1);
@@ -126,6 +131,7 @@ void MostrarDistancia(void *pvParameter){
 	
     while (1){
 		if(control_on && !control_hold){
+			LcdItsE0803Init();
 			LcdItsE0803Write(distancia);
 		}
 		else if(!control_on){
@@ -138,15 +144,14 @@ void MostrarDistancia(void *pvParameter){
 
 /*==================[external functions definition]==========================*/
 void app_main(void){    
-    LedsInit();
     
     LedsInit();
+	SwitchesInit();
 	HcSr04Init(GPIO_3, GPIO_2);
 	LcdItsE0803Init();
-	SwitchesInit();
 
-	xTaskCreate(&MedirDistancia, "Medir distancia", 2048, NULL, 5, NULL);
-	xTaskCreate(&MostrarDistancia, "Mostrar distancia", 2048, NULL, 5, NULL);
-	xTaskCreate(&LeerTeclas, "Leer las teclas", 2048, NULL, 5, NULL);
+	xTaskCreate(MedirDistancia, "Medir distancia", 2048, NULL, 5, NULL);
+	xTaskCreate(MostrarDistancia, "Mostrar distancia", 512, NULL, 5, NULL);
+	xTaskCreate(LeerTeclas, "Leer las teclas", 512, NULL, 5, NULL);
 }
 /*==================[end of file]============================================*/
