@@ -27,6 +27,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 #include "math.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
@@ -35,13 +36,15 @@
 #include "uart_mcu.h"
 #include "analog_io_mcu.h"
 /*==================[macros and definitions]=================================*/
-#define MUESTREO_PERIODO 500 // paso a segundos o muestro en Hz?
-#define BUFFER_SIZE 231
+#define MUESTREO_PERIODO_AD 2000 // En microseg
+#define cadena_SIZE 231
 /*==================[internal data definition]===============================*/
 TaskHandle_t conversion_AD_handle; // Etiqueta
 TaskHandle_t conversion_DA_handle;
 
-const char ecg[BUFFER_SIZE] = {
+int MUESTREO_PERIODO_DA = 4000;
+
+const char ecg[cadena_SIZE] = {
     76, 77, 78, 77, 79, 86, 81, 76, 84, 93, 85, 80,
     89, 95, 89, 85, 93, 98, 94, 88, 98, 105, 96, 91,
     99, 105, 101, 96, 102, 106, 101, 96, 100, 107, 101,
@@ -65,15 +68,19 @@ timer_config_t timer_conversion_DA;
 
 /*==================[internal functions declaration]=========================*/
 
+
+// Función para convertir la señal de digital a analógica
 void ConversionDA(){
 	int i = 0;
 	AnalogOutputInit();
 
 	while(1){
 		TimerStop(TIMER_B);
-		timer_conversion_DA.period = MUESTREO_PERIODO;
+		timer_conversion_DA.period = MUESTREO_PERIODO_DA;
+
 		TimerInit(&timer_conversion_DA);
 		TimerStart(TIMER_B);
+
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		AnalogOutputWrite(ecg[i]);
 		i++;
@@ -84,17 +91,71 @@ void ConversionDA(){
 	}
 }
 
-void TimerDA(void* param){
-    vTaskNotifyGiveFromISR(conversion_DA_handle, pdFALSE);    /* Envía una notificación a la tarea asociada al LED_1 */
+void TimerDAC(void* param){
+    vTaskNotifyGiveFromISR(conversion_DA_handle, pdFALSE);    // Envía una notificación a la tarea asociada al LED_1
+}
+
+void ConversionAD(){
+	while(1){
+		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+		uint16_t valor;
+		char cadena[8];
+
+		AnalogInputReadSingle(CH1, &valor);
+		strcpy(cadena, UartItoa(valor, 10));
+		strcat(cadena, "\n\r");				// Condenso todo en una cadena para llamar una vez a la UART
+		UartSendString(UART_PC, cadena);  	// Envío el dato convertido a ASCII
+	}
+}
+
+void TimerADC(void *param){
+	vTaskNotifyGiveFromISR(conversion_AD_handle, pdFALSE); // Envía una notificación a la tarea asociada
 }
 
 /*==================[external functions definition]==========================*/
 void app_main(void){
-	timer_config_t timer_conversion_DA = {
+
+	// Configuración e inicialización del puerto serie
+	serial_config_t mi_serial;
+	mi_serial.port = UART_PC;
+	mi_serial.baud_rate = 115200; // Bits por segundo
+	mi_serial.func_p = NULL;
+
+	// Configuración e inicialización la UART
+	UartInit(&mi_serial);
+
+	// Configuración del canal analógico
+	analog_input_config_t mi_analogico;
+	mi_analogico.input = CH1;
+	mi_analogico.mode = ADC_SINGLE;
+	mi_analogico.func_p = NULL;
+	mi_analogico.param_p = NULL;
+
+	// Inicialización de la lectura analógica
+	AnalogInputInit(&mi_analogico);
+
+	// Configuración e inicialización del timer para la conversion AD
+	timer_config_t timer_conversion_AD = {
 		.timer = TIMER_A,
-		.period = MUESTREO_PERIODO,
-		.func_p = TimerDA,
-		.param_p = NULL};
+		.period = MUESTREO_PERIODO_AD,
+		.func_p = TimerADC,
+		.param_p = NULL
+	}; TimerInit(&timer_conversion_AD);
+
+	// Configuración e inicialización del timer para la conversion DA
+	timer_conversion_DA.timer = TIMER_B;
+	timer_conversion_DA.period = MUESTREO_PERIODO_DA;
+	timer_conversion_DA.func_p = TimerDAC;
+	timer_conversion_DA.param_p = NULL;
 	TimerInit(&timer_conversion_DA);
+
+	// Creación de la tarea para la conversion AD
+	xTaskCreate(&ConversionAD, "Conversor AD", 2048, NULL, 5, &conversion_AD_handle);
+
+	// Creación de la tarea para la conversion DA
+	xTaskCreate(&ConversionDA, "Conversor DA", 2048, NULL, 5, &conversion_DA_handle);
+
+	TimerStart(TIMER_A);
+	TimerStart(TIMER_B);
 }
 /*==================[end of file]============================================*/
