@@ -75,11 +75,7 @@ void ConversionDA(){
 	AnalogOutputInit();
 
 	while(1){
-		TimerStop(TIMER_B);
-		timer_conversion_DA.period = MUESTREO_PERIODO_DA;
-
-		TimerInit(&timer_conversion_DA);
-		TimerStart(TIMER_B);
+		
 
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		AnalogOutputWrite(ecg[i]);
@@ -96,16 +92,16 @@ void TimerDAC(void* param){
 }
 
 void ConversionAD(){
-	while(1) {
+	while(1){
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
     uint16_t valor;
-    char cadena[8];
 	
     AnalogInputReadSingle(CH1, &valor);
-    strcpy(cadena, (const char *)UartItoa(valor, 10));
-    strcat(cadena, "\n\r");  // Condenso todo en una cadena para llamar una vez a la UART
-    UartSendString(UART_PC, cadena);  // Envío el dato convertido a ASCII
-}
+	UartSendString(UART_PC, ">ECG:");  // Envío el dato convertido a ASCII
+
+    UartSendString(UART_PC, (const char *)UartItoa(valor, 10));
+    UartSendString(UART_PC, "\r\n");  // Envío el dato convertido a ASCII
+	}
 }
 
 void TimerADC(void *param){
@@ -133,6 +129,7 @@ void app_main(void){
 
 	// Inicialización de la lectura analógica
 	AnalogInputInit(&mi_analogico);
+	AnalogOutputInit();
 
 	// Configuración e inicialización del timer para la conversion AD
 	timer_config_t timer_conversion_AD = {
@@ -140,7 +137,8 @@ void app_main(void){
 		.period = MUESTREO_PERIODO_AD,
 		.func_p = TimerADC,
 		.param_p = NULL
-	}; TimerInit(&timer_conversion_AD);
+	}; 
+	TimerInit(&timer_conversion_AD);
 
 	// Configuración e inicialización del timer para la conversion DA
 	timer_conversion_DA.timer = TIMER_B;
