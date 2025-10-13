@@ -35,7 +35,14 @@
 #include "lcditse0803.h"
 #include "switch.h"
 /*==================[macros and definitions]=================================*/
+/** @def TECLA_PERIODO
+ * @brief Valor del período entre el control del estado del switch
+ */
 #define TECLA_PERIODO 100
+
+/** @def MEDICION_PERIODO
+ * @brief Valor del período entre las mediciones
+ */
 #define MEDICION_PERIODO 1000
 /*==================[internal data definition]===============================*/
 uint16_t distancia;
@@ -47,6 +54,10 @@ bool control_hold = false;
 // TaskHandle_t mostrar_task_handle = NULL;
 /*==================[internal functions declaration]=========================*/
 
+/** @fn void LeerTeclas(void *pvParameter)
+ * @brief Analiza el estado de los switchs cada cierto período de tiempo
+ * @return
+ */
 void LeerTeclas(void *pvParameter){
 	int teclas;
 	while (1){
@@ -67,6 +78,10 @@ void LeerTeclas(void *pvParameter){
 	}
 }
 
+/** @fn void MedirDistancia(void *pvParameter)
+ * @brief Mide la distancia que detecta el sensor y activa o desactiva los LEDs correspondientes
+ * @return
+ */
 void MedirDistancia(void *pvParameter){
 	while(1){
 		if(control_on){
@@ -127,6 +142,10 @@ void MedirDistancia(void *pvParameter){
 	}
 }
 
+/** @fn void MostrarDistancia(void *pvParameter)
+ * @brief Muestra el dato de distancia en la pantalla LCD
+ * @return
+ */
 void MostrarDistancia(void *pvParameter){
 	
     while (1){

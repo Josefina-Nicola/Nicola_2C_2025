@@ -37,6 +37,10 @@
 #include "timer_mcu.h"
 #include "uart_mcu.h"
 /*==================[macros and definitions]=================================*/
+
+/** @def MEDICION_PERIODO_US
+ * @brief Valor del período de medición en microsegundos
+ */
 #define MEDICION_PERIODO_US 1000000
 /*==================[internal data definition]===============================*/
 uint16_t distancia;
@@ -47,11 +51,19 @@ TaskHandle_t medir_task_handle = NULL;
 TaskHandle_t mostrar_task_handle = NULL;
 /*==================[internal functions declaration]=========================*/
 
+/** @fn void FuncTimer(void* param)
+ * @brief Envía notificaciones a las tareas asociadas a MedirDistancia y MostrarDistancia
+ * @return
+ */
 void FuncTimer(void* param){
-    vTaskNotifyGiveFromISR(medir_task_handle, pdFALSE);    /* Envía una notificación a la tarea asociada al LED_1 */
+    vTaskNotifyGiveFromISR(medir_task_handle, pdFALSE);
 	vTaskNotifyGiveFromISR(mostrar_task_handle, pdFALSE);
 }
 
+/** @fn void MedirDistancia(void *pvParameter)
+ * @brief Mide la distancia usando el sensor manejando el período de medición con timers y enciende o apaga los LEDs correspondientes
+ * @return
+ */
 void MedirDistancia(void *pvParameter){
 	while(1){
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
@@ -111,6 +123,10 @@ void MedirDistancia(void *pvParameter){
 	}
 }
 
+/** @fn void MostrarDistancia(void *pvParameter)
+ * @brief Muestra la distancia en el LCD y por puerto serie a la PC manejando el período de muestreo con timers
+ * @return
+ */
 void MostrarDistancia(void *pvParameter){
 	while (1){
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
@@ -130,14 +146,26 @@ void MostrarDistancia(void *pvParameter){
 	}
 }
 
+/** @fn void CambiarSwitch1()
+ * @brief Cambia la variable que almacena el estado del switch 1
+ * @return
+ */
 void CambiarSwitch1(){
 	control_on = !control_on;
 }
 
+/** @fn void CambiarSwitch2()
+ * @brief Cambia la variable que almacena el estado del switch 2
+ * @return
+ */
 void CambiarSwitch2(){
 	control_hold = !control_hold;
 }
 
+/** @fn void EntradaPorTeclado(void *param)
+ * @brief Lee la tecla ingresada por computadora y cambia el estado de los switchs si corresponde
+ * @return
+ */
 void EntradaPorTeclado(void *param){
 	uint8_t tecla_ingresada;
 	

@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>guia2_ej1: Referencia del archivo C:/Users/USUARIO/Documents/ElectronicaProgramable/Nicola_2C_2025/firmware/projects/guia2_ej1/main/guia2_ej1.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">guia2_ej1<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('guia2__ej1_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia del archivo guia2_ej1.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="hc__sr04_8h_source.html">hc_sr04.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="lcditse0803_8h_source.html">lcditse0803.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="switch_8h_source.html">switch.h</a>&quot;</code><br />
+</div>
+<p><a href="guia2__ej1_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:ae5b104c8eaa4b1e0bd539b2f53f9b111" id="r_ae5b104c8eaa4b1e0bd539b2f53f9b111"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5b104c8eaa4b1e0bd539b2f53f9b111">TECLA_PERIODO</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memitem:ad33a5a739587d1b45a3fe50da81bff7b" id="r_ad33a5a739587d1b45a3fe50da81bff7b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad33a5a739587d1b45a3fe50da81bff7b">MEDICION_PERIODO</a>&#160;&#160;&#160;1000</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ae4a25f66cbb556aeb122facb1c07f587" id="r_ae4a25f66cbb556aeb122facb1c07f587"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4a25f66cbb556aeb122facb1c07f587">LeerTeclas</a> (void *pvParameter)</td></tr>
+<tr class="memitem:aaa35c079f13feb107aaa3a9f3db0bde6" id="r_aaa35c079f13feb107aaa3a9f3db0bde6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa35c079f13feb107aaa3a9f3db0bde6">MedirDistancia</a> (void *pvParameter)</td></tr>
+<tr class="memitem:a7802e0644d0810eddc7c9d49c1193308" id="r_a7802e0644d0810eddc7c9d49c1193308"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7802e0644d0810eddc7c9d49c1193308">MostrarDistancia</a> (void *pvParameter)</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70" id="r_a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aec40b15ff3098bdb2425eb4dc9c11a18" id="r_aec40b15ff3098bdb2425eb4dc9c11a18"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec40b15ff3098bdb2425eb4dc9c11a18">distancia</a></td></tr>
+<tr class="memitem:a3e4cfe3b06e88a05fed5fea4cdf984c0" id="r_a3e4cfe3b06e88a05fed5fea4cdf984c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e4cfe3b06e88a05fed5fea4cdf984c0">control_on</a> = false</td></tr>
+<tr class="memitem:aa9c8c0072b2c71bd9692d55600f4a73b" id="r_aa9c8c0072b2c71bd9692d55600f4a73b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9c8c0072b2c71bd9692d55600f4a73b">control_hold</a> = false</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentación de «define»</h2>
+<a id="ad33a5a739587d1b45a3fe50da81bff7b" name="ad33a5a739587d1b45a3fe50da81bff7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad33a5a739587d1b45a3fe50da81bff7b">&#9670;&#160;</a></span>MEDICION_PERIODO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEDICION_PERIODO&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00039">39</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00070">MedirDistancia()</a> y <a class="el" href="guia2__ej1_8c_source.html#l00130">MostrarDistancia()</a>.</p>
+
+</div>
+</div>
+<a id="ae5b104c8eaa4b1e0bd539b2f53f9b111" name="ae5b104c8eaa4b1e0bd539b2f53f9b111"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b104c8eaa4b1e0bd539b2f53f9b111">&#9670;&#160;</a></span>TECLA_PERIODO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TECLA_PERIODO&#160;&#160;&#160;100</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00038">38</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00050">LeerTeclas()</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70" name="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&#160;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00146">146</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="gpio__mcu_8h_source.html#l00054">GPIO_2</a>, <a class="el" href="gpio__mcu_8h_source.html#l00055">GPIO_3</a>, <a class="el" href="hc__sr04_8c_source.html#l00034">HcSr04Init()</a>, <a class="el" href="lcditse0803_8c_source.html#l00037">LcdItsE0803Init()</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a>, <a class="el" href="guia2__ej1_8c_source.html#l00050">LeerTeclas()</a>, <a class="el" href="guia2__ej1_8c_source.html#l00070">MedirDistancia()</a>, <a class="el" href="guia2__ej1_8c_source.html#l00130">MostrarDistancia()</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a> y <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>.</p>
+
+</div>
+</div>
+<a id="ae4a25f66cbb556aeb122facb1c07f587" name="ae4a25f66cbb556aeb122facb1c07f587"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4a25f66cbb556aeb122facb1c07f587">&#9670;&#160;</a></span>LeerTeclas()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LeerTeclas </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00050">50</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej1_8c_source.html#l00043">control_hold</a>, <a class="el" href="guia2__ej1_8c_source.html#l00042">control_on</a>, <a class="el" href="switch_8h_source.html#l00032">SWITCH_1</a>, <a class="el" href="switch_8h_source.html#l00033">SWITCH_2</a>, <a class="el" href="switch_8c_source.html#l00038">SwitchesRead()</a> y <a class="el" href="guia2__ej1_8c_source.html#l00038">TECLA_PERIODO</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00146">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="aaa35c079f13feb107aaa3a9f3db0bde6" name="aaa35c079f13feb107aaa3a9f3db0bde6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa35c079f13feb107aaa3a9f3db0bde6">&#9670;&#160;</a></span>MedirDistancia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MedirDistancia </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00070">70</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej1_8c_source.html#l00042">control_on</a>, <a class="el" href="guia2__ej1_8c_source.html#l00041">distancia</a>, <a class="el" href="hc__sr04_8c_source.html#l00045">HcSr04ReadDistanceInCentimeters()</a>, <a class="el" href="led_8h_source.html#l00034">LED_1</a>, <a class="el" href="led_8h_source.html#l00033">LED_2</a>, <a class="el" href="led_8h_source.html#l00032">LED_3</a>, <a class="el" href="led_8c_source.html#l00065">LedOff()</a>, <a class="el" href="led_8c_source.html#l00046">LedOn()</a> y <a class="el" href="guia2__ej1_8c_source.html#l00039">MEDICION_PERIODO</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00146">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a7802e0644d0810eddc7c9d49c1193308" name="a7802e0644d0810eddc7c9d49c1193308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7802e0644d0810eddc7c9d49c1193308">&#9670;&#160;</a></span>MostrarDistancia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MostrarDistancia </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00130">130</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej1_8c_source.html#l00043">control_hold</a>, <a class="el" href="guia2__ej1_8c_source.html#l00042">control_on</a>, <a class="el" href="guia2__ej1_8c_source.html#l00041">distancia</a>, <a class="el" href="lcditse0803_8c_source.html#l00037">LcdItsE0803Init()</a>, <a class="el" href="lcditse0803_8c_source.html#l00087">LcdItsE0803Off()</a>, <a class="el" href="lcditse0803_8c_source.html#l00054">LcdItsE0803Write()</a> y <a class="el" href="guia2__ej1_8c_source.html#l00039">MEDICION_PERIODO</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00146">app_main()</a>.</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentación de variables</h2>
+<a id="aa9c8c0072b2c71bd9692d55600f4a73b" name="aa9c8c0072b2c71bd9692d55600f4a73b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c8c0072b2c71bd9692d55600f4a73b">&#9670;&#160;</a></span>control_hold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool control_hold = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00043">43</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00050">LeerTeclas()</a> y <a class="el" href="guia2__ej1_8c_source.html#l00130">MostrarDistancia()</a>.</p>
+
+</div>
+</div>
+<a id="a3e4cfe3b06e88a05fed5fea4cdf984c0" name="a3e4cfe3b06e88a05fed5fea4cdf984c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4cfe3b06e88a05fed5fea4cdf984c0">&#9670;&#160;</a></span>control_on</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool control_on = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00042">42</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00050">LeerTeclas()</a>, <a class="el" href="guia2__ej1_8c_source.html#l00070">MedirDistancia()</a> y <a class="el" href="guia2__ej1_8c_source.html#l00130">MostrarDistancia()</a>.</p>
+
+</div>
+</div>
+<a id="aec40b15ff3098bdb2425eb4dc9c11a18" name="aec40b15ff3098bdb2425eb4dc9c11a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec40b15ff3098bdb2425eb4dc9c11a18">&#9670;&#160;</a></span>distancia</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t distancia</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej1_8c_source.html#l00041">41</a> del archivo <a class="el" href="guia2__ej1_8c_source.html">guia2_ej1.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej1_8c_source.html#l00070">MedirDistancia()</a> y <a class="el" href="guia2__ej1_8c_source.html#l00130">MostrarDistancia()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a href="dir_a76edacacd42953d38d01797b0e2044f.html">guia2_ej1</a></li><li class="navelem"><a href="dir_8d36ede6dc7dc4ace1bb805864d9d528.html">main</a></li><li class="navelem"><a href="guia2__ej1_8c.html">guia2_ej1.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

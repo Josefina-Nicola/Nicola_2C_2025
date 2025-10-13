@@ -96,16 +96,16 @@ void TimerDAC(void* param){
 }
 
 void ConversionAD(){
-	while(1){
-		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
-		uint16_t valor;
-		char cadena[8];
-
-		AnalogInputReadSingle(CH1, &valor);
-		strcpy(cadena, UartItoa(valor, 10));
-		strcat(cadena, "\n\r");				// Condenso todo en una cadena para llamar una vez a la UART
-		UartSendString(UART_PC, cadena);  	// Envío el dato convertido a ASCII
-	}
+	while(1) {
+    ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    uint16_t valor;
+    char cadena[8];
+	
+    AnalogInputReadSingle(CH1, &valor);
+    strcpy(cadena, (const char *)UartItoa(valor, 10));
+    strcat(cadena, "\n\r");  // Condenso todo en una cadena para llamar una vez a la UART
+    UartSendString(UART_PC, cadena);  // Envío el dato convertido a ASCII
+}
 }
 
 void TimerADC(void *param){

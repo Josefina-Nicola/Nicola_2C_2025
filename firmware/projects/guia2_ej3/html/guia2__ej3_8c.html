@@ -1,0 +1,427 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>guia2_ej3: Referencia del archivo C:/Users/USUARIO/Documents/ElectronicaProgramable/Nicola_2C_2025/firmware/projects/guia2_ej3/main/guia2_ej3.c</title>
+<link rel="icon" href="icon.ico" type="image/x-icon" />
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="fiuner.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">guia2_ej3<span id="projectnumber">&#160;1.0</span>
+   </div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Buscar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Generado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('guia2__ej3_8c.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Cargando...</div>
+<div class="SRStatus" id="Searching">Buscando...</div>
+<div class="SRStatus" id="NoMatches">Nada coincide</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referencia del archivo guia2_ej3.c</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="hc__sr04_8h_source.html">hc_sr04.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="led_8h_source.html">led.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gpio__mcu_8h_source.html">gpio_mcu.h</a>&quot;</code><br />
+<code>#include &quot;freertos/FreeRTOS.h&quot;</code><br />
+<code>#include &quot;freertos/task.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="lcditse0803_8h_source.html">lcditse0803.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="switch_8h_source.html">switch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer__mcu_8h_source.html">timer_mcu.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="uart__mcu_8h_source.html">uart_mcu.h</a>&quot;</code><br />
+</div>
+<p><a href="guia2__ej3_8c_source.html">Ir al código fuente de este archivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+defines</h2></td></tr>
+<tr class="memitem:a737b09c4f4c10c8be914ff662f019032" id="r_a737b09c4f4c10c8be914ff662f019032"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a737b09c4f4c10c8be914ff662f019032">MEDICION_PERIODO_US</a>&#160;&#160;&#160;1000000</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funciones</h2></td></tr>
+<tr class="memitem:ad9278972624167025b4b2910afc9765e" id="r_ad9278972624167025b4b2910afc9765e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9278972624167025b4b2910afc9765e">FuncTimer</a> (void *param)</td></tr>
+<tr class="memitem:aaa35c079f13feb107aaa3a9f3db0bde6" id="r_aaa35c079f13feb107aaa3a9f3db0bde6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa35c079f13feb107aaa3a9f3db0bde6">MedirDistancia</a> (void *pvParameter)</td></tr>
+<tr class="memitem:a7802e0644d0810eddc7c9d49c1193308" id="r_a7802e0644d0810eddc7c9d49c1193308"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7802e0644d0810eddc7c9d49c1193308">MostrarDistancia</a> (void *pvParameter)</td></tr>
+<tr class="memitem:a1d8d0c2d9bcf97010fb4aed8d10f69ba" id="r_a1d8d0c2d9bcf97010fb4aed8d10f69ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d8d0c2d9bcf97010fb4aed8d10f69ba">CambiarSwitch1</a> ()</td></tr>
+<tr class="memitem:a31f270c8d035c5e6bfc37f666cd7555f" id="r_a31f270c8d035c5e6bfc37f666cd7555f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a31f270c8d035c5e6bfc37f666cd7555f">CambiarSwitch2</a> ()</td></tr>
+<tr class="memitem:a7530af62a3bff8537928932b687220a4" id="r_a7530af62a3bff8537928932b687220a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7530af62a3bff8537928932b687220a4">EntradaPorTeclado</a> (void *param)</td></tr>
+<tr class="memitem:a630544a7f0a2cc40d8a7fefab7e2fe70" id="r_a630544a7f0a2cc40d8a7fefab7e2fe70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a630544a7f0a2cc40d8a7fefab7e2fe70">app_main</a> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:aec40b15ff3098bdb2425eb4dc9c11a18" id="r_aec40b15ff3098bdb2425eb4dc9c11a18"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec40b15ff3098bdb2425eb4dc9c11a18">distancia</a></td></tr>
+<tr class="memitem:a3e4cfe3b06e88a05fed5fea4cdf984c0" id="r_a3e4cfe3b06e88a05fed5fea4cdf984c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e4cfe3b06e88a05fed5fea4cdf984c0">control_on</a> = true</td></tr>
+<tr class="memitem:aa9c8c0072b2c71bd9692d55600f4a73b" id="r_aa9c8c0072b2c71bd9692d55600f4a73b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9c8c0072b2c71bd9692d55600f4a73b">control_hold</a> = false</td></tr>
+<tr class="memitem:a2b0cb40d7a31ce7e8b3f906fd55df312" id="r_a2b0cb40d7a31ce7e8b3f906fd55df312"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b0cb40d7a31ce7e8b3f906fd55df312">medir_task_handle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+<tr class="memitem:a1316d5b1a3e4d9dee5085faf3b582e40" id="r_a1316d5b1a3e4d9dee5085faf3b582e40"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1316d5b1a3e4d9dee5085faf3b582e40">mostrar_task_handle</a> = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentación de «define»</h2>
+<a id="a737b09c4f4c10c8be914ff662f019032" name="a737b09c4f4c10c8be914ff662f019032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a737b09c4f4c10c8be914ff662f019032">&#9670;&#160;</a></span>MEDICION_PERIODO_US</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MEDICION_PERIODO_US&#160;&#160;&#160;1000000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00040">40</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentación de funciones</h2>
+<a id="a630544a7f0a2cc40d8a7fefab7e2fe70" name="a630544a7f0a2cc40d8a7fefab7e2fe70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a630544a7f0a2cc40d8a7fefab7e2fe70">&#9670;&#160;</a></span>app_main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void app_main </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00155">155</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="uart__mcu_8h_source.html#l00040">serial_config_t::baud_rate</a>, <a class="el" href="guia2__ej3_8c_source.html#l00133">CambiarSwitch1()</a>, <a class="el" href="guia2__ej3_8c_source.html#l00137">CambiarSwitch2()</a>, <a class="el" href="guia2__ej3_8c_source.html#l00141">EntradaPorTeclado()</a>, <a class="el" href="uart__mcu_8h_source.html#l00041">serial_config_t::func_p</a>, <a class="el" href="guia2__ej3_8c_source.html#l00050">FuncTimer()</a>, <a class="el" href="gpio__mcu_8h_source.html#l00054">GPIO_2</a>, <a class="el" href="gpio__mcu_8h_source.html#l00055">GPIO_3</a>, <a class="el" href="hc__sr04_8c_source.html#l00034">HcSr04Init()</a>, <a class="el" href="lcditse0803_8c_source.html#l00037">LcdItsE0803Init()</a>, <a class="el" href="led_8c_source.html#l00031">LedsInit()</a>, <a class="el" href="guia2__ej3_8c_source.html#l00040">MEDICION_PERIODO_US</a>, <a class="el" href="guia2__ej3_8c_source.html#l00046">medir_task_handle</a>, <a class="el" href="guia2__ej3_8c_source.html#l00055">MedirDistancia()</a>, <a class="el" href="guia2__ej3_8c_source.html#l00047">mostrar_task_handle</a>, <a class="el" href="guia2__ej3_8c_source.html#l00114">MostrarDistancia()</a>, <a class="el" href="ili9341_8c_source.html#l00019">NULL</a>, <a class="el" href="uart__mcu_8h_source.html#l00039">serial_config_t::port</a>, <a class="el" href="switch_8h_source.html#l00032">SWITCH_1</a>, <a class="el" href="switch_8h_source.html#l00033">SWITCH_2</a>, <a class="el" href="switch_8c_source.html#l00047">SwitchActivInt()</a>, <a class="el" href="switch_8c_source.html#l00029">SwitchesInit()</a>, <a class="el" href="timer__mcu_8h_source.html#l00040">timer_config_t::timer</a>, <a class="el" href="timer__mcu_8h_source.html#l00032">TIMER_A</a>, <a class="el" href="timer__mcu_8c_source.html#l00067">TimerInit()</a>, <a class="el" href="timer__mcu_8c_source.html#l00116">TimerStart()</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a> y <a class="el" href="uart__mcu_8c_source.html#l00107">UartInit()</a>.</p>
+
+</div>
+</div>
+<a id="a1d8d0c2d9bcf97010fb4aed8d10f69ba" name="a1d8d0c2d9bcf97010fb4aed8d10f69ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d8d0c2d9bcf97010fb4aed8d10f69ba">&#9670;&#160;</a></span>CambiarSwitch1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CambiarSwitch1 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00133">133</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej3_8c_source.html#l00043">control_on</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a> y <a class="el" href="guia2__ej3_8c_source.html#l00141">EntradaPorTeclado()</a>.</p>
+
+</div>
+</div>
+<a id="a31f270c8d035c5e6bfc37f666cd7555f" name="a31f270c8d035c5e6bfc37f666cd7555f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31f270c8d035c5e6bfc37f666cd7555f">&#9670;&#160;</a></span>CambiarSwitch2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CambiarSwitch2 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00137">137</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej3_8c_source.html#l00044">control_hold</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a> y <a class="el" href="guia2__ej3_8c_source.html#l00141">EntradaPorTeclado()</a>.</p>
+
+</div>
+</div>
+<a id="a7530af62a3bff8537928932b687220a4" name="a7530af62a3bff8537928932b687220a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7530af62a3bff8537928932b687220a4">&#9670;&#160;</a></span>EntradaPorTeclado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EntradaPorTeclado </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00141">141</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej3_8c_source.html#l00133">CambiarSwitch1()</a>, <a class="el" href="guia2__ej3_8c_source.html#l00137">CambiarSwitch2()</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a>, <a class="el" href="uart__mcu_8c_source.html#l00142">UartReadByte()</a> y <a class="el" href="uart__mcu_8c_source.html#l00180">UartSendByte()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="ad9278972624167025b4b2910afc9765e" name="ad9278972624167025b4b2910afc9765e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9278972624167025b4b2910afc9765e">&#9670;&#160;</a></span>FuncTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FuncTimer </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>param</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00050">50</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej3_8c_source.html#l00046">medir_task_handle</a> y <a class="el" href="guia2__ej3_8c_source.html#l00047">mostrar_task_handle</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="aaa35c079f13feb107aaa3a9f3db0bde6" name="aaa35c079f13feb107aaa3a9f3db0bde6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa35c079f13feb107aaa3a9f3db0bde6">&#9670;&#160;</a></span>MedirDistancia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MedirDistancia </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00055">55</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej3_8c_source.html#l00043">control_on</a>, <a class="el" href="guia2__ej3_8c_source.html#l00042">distancia</a>, <a class="el" href="hc__sr04_8c_source.html#l00045">HcSr04ReadDistanceInCentimeters()</a>, <a class="el" href="led_8h_source.html#l00034">LED_1</a>, <a class="el" href="led_8h_source.html#l00033">LED_2</a>, <a class="el" href="led_8h_source.html#l00032">LED_3</a>, <a class="el" href="led_8c_source.html#l00065">LedOff()</a> y <a class="el" href="led_8c_source.html#l00046">LedOn()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a>.</p>
+
+</div>
+</div>
+<a id="a7802e0644d0810eddc7c9d49c1193308" name="a7802e0644d0810eddc7c9d49c1193308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7802e0644d0810eddc7c9d49c1193308">&#9670;&#160;</a></span>MostrarDistancia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MostrarDistancia </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pvParameter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00114">114</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Hace referencia a <a class="el" href="guia2__ej3_8c_source.html#l00044">control_hold</a>, <a class="el" href="guia2__ej3_8c_source.html#l00043">control_on</a>, <a class="el" href="guia2__ej3_8c_source.html#l00042">distancia</a>, <a class="el" href="lcditse0803_8c_source.html#l00037">LcdItsE0803Init()</a>, <a class="el" href="lcditse0803_8c_source.html#l00087">LcdItsE0803Off()</a>, <a class="el" href="lcditse0803_8c_source.html#l00054">LcdItsE0803Write()</a>, <a class="el" href="uart__mcu_8h_source.html#l00032">UART_PC</a> y <a class="el" href="uart__mcu_8c_source.html#l00193">UartSendString()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a>.</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Documentación de variables</h2>
+<a id="aa9c8c0072b2c71bd9692d55600f4a73b" name="aa9c8c0072b2c71bd9692d55600f4a73b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c8c0072b2c71bd9692d55600f4a73b">&#9670;&#160;</a></span>control_hold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool control_hold = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00044">44</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00137">CambiarSwitch2()</a> y <a class="el" href="guia2__ej3_8c_source.html#l00114">MostrarDistancia()</a>.</p>
+
+</div>
+</div>
+<a id="a3e4cfe3b06e88a05fed5fea4cdf984c0" name="a3e4cfe3b06e88a05fed5fea4cdf984c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4cfe3b06e88a05fed5fea4cdf984c0">&#9670;&#160;</a></span>control_on</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool control_on = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00043">43</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00133">CambiarSwitch1()</a>, <a class="el" href="guia2__ej3_8c_source.html#l00055">MedirDistancia()</a> y <a class="el" href="guia2__ej3_8c_source.html#l00114">MostrarDistancia()</a>.</p>
+
+</div>
+</div>
+<a id="aec40b15ff3098bdb2425eb4dc9c11a18" name="aec40b15ff3098bdb2425eb4dc9c11a18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec40b15ff3098bdb2425eb4dc9c11a18">&#9670;&#160;</a></span>distancia</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t distancia</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00042">42</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00055">MedirDistancia()</a> y <a class="el" href="guia2__ej3_8c_source.html#l00114">MostrarDistancia()</a>.</p>
+
+</div>
+</div>
+<a id="a2b0cb40d7a31ce7e8b3f906fd55df312" name="a2b0cb40d7a31ce7e8b3f906fd55df312"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0cb40d7a31ce7e8b3f906fd55df312">&#9670;&#160;</a></span>medir_task_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t medir_task_handle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00046">46</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a> y <a class="el" href="guia2__ej3_8c_source.html#l00050">FuncTimer()</a>.</p>
+
+</div>
+</div>
+<a id="a1316d5b1a3e4d9dee5085faf3b582e40" name="a1316d5b1a3e4d9dee5085faf3b582e40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1316d5b1a3e4d9dee5085faf3b582e40">&#9670;&#160;</a></span>mostrar_task_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t mostrar_task_handle = <a class="el" href="ili9341_8c.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">NULL</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definición en la línea <a class="el" href="guia2__ej3_8c_source.html#l00047">47</a> del archivo <a class="el" href="guia2__ej3_8c_source.html">guia2_ej3.c</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="guia2__ej3_8c_source.html#l00155">app_main()</a> y <a class="el" href="guia2__ej3_8c_source.html#l00050">FuncTimer()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="dir_d9edf6c004b4a7ff14fe9ae7a92214ee.html">firmware</a></li><li class="navelem"><a href="dir_429d80758da54da73083af4edd40d0b3.html">projects</a></li><li class="navelem"><a href="dir_06a6f11a16392059cca25b58215ebbe7.html">guia2_ej3</a></li><li class="navelem"><a href="dir_cf168e8f73602cef6ac13a7b0067aff2.html">main</a></li><li class="navelem"><a href="guia2__ej3_8c.html">guia2_ej3.c</a></li>
+    <li class="footer">Generado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>
