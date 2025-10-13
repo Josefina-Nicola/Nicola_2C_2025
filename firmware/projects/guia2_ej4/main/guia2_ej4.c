@@ -36,7 +36,13 @@
 #include "uart_mcu.h"
 #include "analog_io_mcu.h"
 /*==================[macros and definitions]=================================*/
-#define MUESTREO_PERIODO_AD 2000 // En microseg
+/** @def MUESTREO_PERIODO_AD
+ * @brief Valor del período de muestreo en microsegundos
+ */
+#define MUESTREO_PERIODO_AD 2000
+/** @def cadena_SIZE
+ * @brief Valor del tamaño de la lista de los valores de ecg
+ */
 #define cadena_SIZE 231
 /*==================[internal data definition]===============================*/
 TaskHandle_t conversion_AD_handle; // Etiqueta
@@ -68,15 +74,15 @@ timer_config_t timer_conversion_DA;
 
 /*==================[internal functions declaration]=========================*/
 
-
-// Función para convertir la señal de digital a analógica
+/** @fn void ConversionDA()
+ * @brief Convierte la señal digital de ecg en analógica
+ * @return
+ */
 void ConversionDA(){
 	int i = 0;
 	AnalogOutputInit();
 
 	while(1){
-		
-
 		ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 		AnalogOutputWrite(ecg[i]);
 		i++;
@@ -87,23 +93,35 @@ void ConversionDA(){
 	}
 }
 
+/** @fn void TimerDAC(void* param)
+ * @brief Función que se invoca en la interrupción del timer B
+ * @return
+ */
 void TimerDAC(void* param){
-    vTaskNotifyGiveFromISR(conversion_DA_handle, pdFALSE);    // Envía una notificación a la tarea asociada al LED_1
+    vTaskNotifyGiveFromISR(conversion_DA_handle, pdFALSE);
 }
 
+/** @fn void ConversionAD()
+ * @brief Convierte la señal analógica de ecg en digital
+ * @return
+ */
 void ConversionAD(){
 	while(1){
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
     uint16_t valor;
 	
     AnalogInputReadSingle(CH1, &valor);
-	UartSendString(UART_PC, ">ECG:");  // Envío el dato convertido a ASCII
+	UartSendString(UART_PC, ">ECG:");
 
     UartSendString(UART_PC, (const char *)UartItoa(valor, 10));
-    UartSendString(UART_PC, "\r\n");  // Envío el dato convertido a ASCII
+    UartSendString(UART_PC, "\r\n");
 	}
 }
 
+/** @fn void TimerADC(void* param)
+ * @brief Función que se invoca en la interrupción del timer A
+ * @return
+ */
 void TimerADC(void *param){
 	vTaskNotifyGiveFromISR(conversion_AD_handle, pdFALSE); // Envía una notificación a la tarea asociada
 }
